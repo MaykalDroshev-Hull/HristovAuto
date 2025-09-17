@@ -1,21 +1,38 @@
 {
-  "name": "online-auto-part-shop",
+  "name": "hristov-auto-nextjs",
   "version": "1.0.0",
-  "description": "- Follow the structure to create new files\r - Write comments for every code ...\r - Thank You.",
-  "main": "server.js",
+  "description": "Auto parts e-commerce website built with Next.js and TypeScript",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nishalbarman/online-auto-part-shop.git"
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "swiper": "^11.0.0",
+    "lucide-react": "^0.294.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
   },
-  "author": "Nishal, Chetan, Prasad, Ashish",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nishalbarman/online-auto-part-shop/issues"
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
   },
-  "homepage": "https://github.com/nishalbarman/online-auto-part-shop#readme",
-  "type": "module"
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
