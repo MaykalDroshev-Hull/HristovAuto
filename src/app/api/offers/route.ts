@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { offers } from '@/data/offers';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const { searchParams } = request.nextUrl;
     const limit = searchParams.get('_limit');
     const active = searchParams.get('active');
 

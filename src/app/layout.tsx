@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description: 'Получете желаните части за превозното си средство от комфорта на вашия дом. Премиум авточасти, аксесоари и инструменти за всички модели коли.',
   keywords: 'авточасти, автомобилни аксесоари, части за превозни средства, автомобилна индустрия, поддръжка на коли, автомобилен ремонт',
   authors: [{ name: 'Христов АУТО' }],
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   openGraph: {
     title: 'Христов АУТО - Премиум авточасти и аксесоари',
@@ -24,6 +23,11 @@ export const metadata: Metadata = {
     title: 'Христов АУТО - Премиум авточасти и аксесоари',
     description: 'Получете желаните части за превозното си средство от комфорта на вашия дом.',
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({

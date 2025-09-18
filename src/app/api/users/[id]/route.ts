@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { users } from '@/data';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const userId = parseInt(params.id);
+    const { id } = await params;
+    const userId = parseInt(id);
     const user = users.find(u => u.id === userId);
 
     if (!user) {
@@ -28,10 +31,11 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const userId = parseInt(params.id);
+    const { id } = await params;
+    const userId = parseInt(id);
     const userIndex = users.findIndex(u => u.id === userId);
 
     if (userIndex === -1) {

@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { products } from '@/data/products';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const productId = parseInt(params.id);
+    const { id } = await params;
+    const productId = parseInt(id);
     const product = products.find(p => p.id === productId);
 
     if (!product) {
@@ -28,10 +31,11 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const productId = parseInt(params.id);
+    const { id } = await params;
+    const productId = parseInt(id);
     const productIndex = products.findIndex(p => p.id === productId);
 
     if (productIndex === -1) {
@@ -56,10 +60,11 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const productId = parseInt(params.id);
+    const { id } = await params;
+    const productId = parseInt(id);
     const productIndex = products.findIndex(p => p.id === productId);
 
     if (productIndex === -1) {

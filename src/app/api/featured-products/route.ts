@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { featuredProducts } from '@/data/featured-products';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const { searchParams } = request.nextUrl;
     const limit = searchParams.get('_limit');
 
     let filteredProducts = [...featuredProducts];

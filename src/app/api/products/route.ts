@@ -2,9 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { products } from '@/data/products';
 import { Product, SearchFilters } from '@/types';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const { searchParams } = request.nextUrl;
     
     // Get query parameters
     const category = searchParams.get('category');
